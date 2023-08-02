@@ -1,8 +1,24 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'home_page.dart';
 
-void main() {
+Future<void> main() async {
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    if (kDebugMode) {
+      return ErrorWidget(details.exception);
+    }
+    return Container(
+      alignment: Alignment.center,
+      child: Text(
+        '${details.exception}',
+        textAlign: TextAlign.center,
+        textDirection: TextDirection.ltr,
+      ),
+    );
+  };
   runApp(const MyApp());
 }
 
@@ -12,35 +28,52 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // const primaryColor = Color.fromRGBO(99, 63, 211, 1);
-    // const secondaryColor = Color.fromRGBO(196, 207, 79, 1);
-    const primaryColor = Color.fromRGBO(141, 114, 104, 1);
-    const secondaryColor = Color.fromRGBO(211, 195, 176, 1);
+    const primaryColor = Color.fromRGBO(40, 123, 2, 1); // #287B02
+    const secondaryColor = Color.fromRGBO(205, 17, 20, 1); // #CD1114
+    const tertiaryColor = Color.fromRGBO(255, 222, 89, 1); // #FFDE59
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'USAT Calendar',
+      supportedLocales: const [
+        Locale('fr', 'FR'),
+      ],
+      localizationsDelegates: [
+        FlutterI18nDelegate(
+          translationLoader: FileTranslationLoader(
+            fallbackFile: 'fr',
+            basePath: 'assets/i18n',
+          ),
+          missingTranslationHandler: (key, locale) {
+            print(
+                '--- Missing Key: $key, languageCode: ${locale?.languageCode}');
+          },
+        ),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      builder: FlutterI18n.rootAppBuilder(),
       theme: ThemeData(
         // COLORS
         primaryColor: primaryColor,
-        // primaryColorLight: const Color.fromRGBO(230, 230, 250, 1),
-        // primaryColorDark: const Color.fromRGBO(48, 25, 52, 1),
-        primaryColorLight: const Color.fromRGBO(169, 146, 138, 1),
-        primaryColorDark: const Color.fromRGBO(113, 91, 83, 1),
         colorScheme: const ColorScheme.light(
-            primary: primaryColor, secondary: secondaryColor),
-        errorColor: const Color(0xE30613),
+            primary: primaryColor,
+            secondary: secondaryColor,
+            tertiary: tertiaryColor,
+            error: Colors.red),
         // Font Family
         fontFamily: 'Raleway',
         // Text Style
         textTheme: const TextTheme(
-          bodyText1: TextStyle(),
-          bodyText2: TextStyle(),
+          bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
+          bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
         ).apply(
           bodyColor: Colors.white,
           displayColor: primaryColor,
         ),
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
