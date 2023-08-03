@@ -2,8 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
-import 'home_page.dart';
+import 'package:provider/provider.dart';
+import 'package:usat_calendar/data/db.dart';
+import 'package:usat_calendar/shared/routes/router.dart';
+import 'package:usat_calendar/shared/routes/auth_guard.dart';
 
 Future<void> main() async {
   ErrorWidget.builder = (FlutterErrorDetails details) {
@@ -28,13 +30,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final authService = AuthService();
+
+    final _rootRouter = RootRouter();
+
     const primaryColor = Color.fromRGBO(40, 123, 2, 1); // #287B02
     const secondaryColor = Color.fromRGBO(205, 17, 20, 1); // #CD1114
     const tertiaryColor = Color.fromRGBO(255, 222, 89, 1); // #FFDE59
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'USAT Calendar',
+    return MaterialApp.router(
       supportedLocales: const [
         Locale('fr', 'FR'),
       ],
@@ -53,7 +57,9 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      builder: FlutterI18n.rootAppBuilder(),
+      title: 'USAT Calendar',
+      debugShowCheckedModeBanner: false,
+      routerConfig: _rootRouter.config(),
       theme: ThemeData(
         // COLORS
         primaryColor: primaryColor,
@@ -73,7 +79,14 @@ class MyApp extends StatelessWidget {
           displayColor: primaryColor,
         ),
       ),
-      home: const MyHomePage(),
+      builder: (_, router) {
+        return ChangeNotifierProvider<AuthService>(
+          create: (_) => authService,
+          child: BooksDBProvider(
+            child: router!,
+          ),
+        );
+      },
     );
   }
 }
