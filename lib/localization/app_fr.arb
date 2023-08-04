@@ -1,0 +1,20 @@
+{
+    "common_appTitle": "USAT Calendrier",
+    "common_appVersion": "Version {value}",
+    "@common_appVersion": {
+        "description": "Numéro de version de l'app",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
+    },
+    "common_loading": "Chargement",
+    "common_next": "Suivant",
+    "common_cancel": "Annuler",
+    "common_exit": "Quitter",
+    "common_back": "Retour",
+    "error_noInternet": "Une erreur serveur est survenue",
+    "error_unknown": "Une erreur est survenue",
+    "error_somethingWrongTryAgain": "Une erreur est survenue! Veuillez réessayer"
+}
