@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "866441010303",
+    "firebase_url": "https://usat-calendar-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "usat-calendar",
+    "storage_bucket": "usat-calendar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866441010303:android:29069c8b760fb63a66b34a",
+        "android_client_info": {
+          "package_name": "com.jeremyCoutellec.usat_calendar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866441010303-0g0aclo55o11df7atjgqj99uu4shrc6r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDKa5oMtCCyPJ95gezTRfocB3JGgBMHlw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "866441010303-0g0aclo55o11df7atjgqj99uu4shrc6r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
