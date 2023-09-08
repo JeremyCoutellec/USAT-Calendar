@@ -43,6 +43,7 @@ dependencies:
   auto_route: ^6.0.0+1
   firebase_core: ^2.15.1
   firebase_database: ^10.2.5
+  firebase_auth: ^4.9.0
 
   # FIREBASE
   # GITHUB

@@ -127,12 +127,7 @@ Here is the folder structure we have been using in this project
 
 ```
 lib/
-|- _dev/
-  |- mock/
-  |- view/
-  |- widget/
 |- localization/
-|- packages/
 |- router/
 |- src/
   |- config/
