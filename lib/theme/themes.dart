@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:usat_calendar/theme/colors.dart';
 import 'package:usat_calendar/theme/styles.dart';
 
-import 'colors.dart';
-
-class XTheme {
+class Themes {
   static const String? fontFamily = 'Raleway';
 
   static ThemeData light() => ThemeData(
         fontFamily: fontFamily,
 
         /// Colors
-        primarySwatch: XColors.primaryColors,
-        primaryColor: XColors.primary,
         brightness: Brightness.light,
-        textTheme: XStyles.textTheme,
+        textTheme: ThemeStyles.textTheme,
 
         /// ColorScheme
         colorScheme: ColorScheme.light(
-            primary: XColors.primary,
-            secondary: XColors.secondary,
-            tertiary: XColors.tertiary,
-            error: Colors.red),
+            primary: ThemeColors.primary,
+            secondary: ThemeColors.secondary,
+            tertiary: ThemeColors.tertiary),
         // Font Family
 
         // Appbar
         appBarTheme: AppBarTheme(
           // default system appbar icon is white
-          backgroundColor: XColors.primary,
+          backgroundColor: ThemeColors.primary,
         ),
 
         /// input

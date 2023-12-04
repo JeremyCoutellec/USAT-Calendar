@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:usat_calendar/router/auto_router.dart';
-import 'package:usat_calendar/router/router_name.dart';
 
-class XCoordinator {
-  static XRouter get rootRouter => GetIt.I<XRouter>();
+class AppCoordinator {
+  static AppRouter get rootRouter => GetIt.I<AppRouter>();
 
   static BuildContext get context =>
       rootRouter.navigatorKey.currentState!.context;
 
   static Future<bool> pop<T extends Object?>([T? result]) async {
     return rootRouter.pop(result);
-  }
-
-  static Future showDev() async {
-    return rootRouter.pushNamed(XRoutes.dev);
   }
 }
