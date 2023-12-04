@@ -10,5 +10,5 @@ class RouteNames {}
 class RouteTaps {
   static const landing = 'landing';
   static const login = 'login';
-  static const inscription = 'inscription';
+  static const register = 'register';
 }

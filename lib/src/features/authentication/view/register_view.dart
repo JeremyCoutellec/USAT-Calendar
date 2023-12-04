@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class signUpScreen extends StatefulWidget {
+class RegisterView extends StatefulWidget {
   @override
-  _signUpScreenState createState() => _signUpScreenState();
+  _RegisterViewState createState() => _RegisterViewState();
 }
 
-class _signUpScreenState extends State<signUpScreen> {
+class _RegisterViewState extends State<RegisterView> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
