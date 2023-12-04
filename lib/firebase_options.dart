@@ -38,10 +38,7 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return web;
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
@@ -55,7 +52,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '866441010303',
     projectId: 'usat-calendar',
     authDomain: 'usat-calendar.firebaseapp.com',
-    databaseURL: 'https://usat-calendar-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://usat-calendar-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'usat-calendar.appspot.com',
     measurementId: 'G-KYZDGVP8Z3',
   );
@@ -65,7 +63,8 @@ class DefaultFirebaseOptions {
     appId: '1:866441010303:android:29069c8b760fb63a66b34a',
     messagingSenderId: '866441010303',
     projectId: 'usat-calendar',
-    databaseURL: 'https://usat-calendar-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://usat-calendar-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'usat-calendar.appspot.com',
   );
 }

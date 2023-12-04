@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
@@ -20,6 +21,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final appRouter = getIt<AppRouter>();
 
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        print('User is currently signed out!');
+      } else {
+        print('User is signed in!');
+      }
+    });
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [
