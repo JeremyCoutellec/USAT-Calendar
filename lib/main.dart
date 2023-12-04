@@ -11,8 +11,6 @@ Future main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-
   GetIt.I.registerLazySingleton(() => AppRouter());
 
   runApp(MyApp());

@@ -16,6 +16,14 @@ class AppRouter extends $AppRouter {
         AutoRoute(path: RouteTaps.landing, page: LandingRoute.page),
       ],
     ),
+    AutoRoute(
+      page: AuthenticationRoute.page,
+      path: '/authentication',
+      children: [
+        AutoRoute(path: RouteTaps.login, page: LoginRoute.page),
+        AutoRoute(path: RouteTaps.inscription, page: InscriptionRoute.page),
+      ],
+    ),
     RedirectRoute(path: '*', redirectTo: ''),
   ];
 }
